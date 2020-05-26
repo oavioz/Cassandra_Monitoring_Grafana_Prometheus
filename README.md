@@ -1,4 +1,4 @@
-# On This Repo i will explain how to configure and use Grafana and Prometheus Monitoring for Apache Cassandra
+# On this Repo i will explain how to configure and use Grafana and Prometheus Monitoring for Apache Cassandra
 Note, that This repo contains everthing needed to lauch docker containers with [Prometheus](https://prometheus.io/) and [Grafana](https:/grafana.com/) to monitor an Apache Cassandra cluster.
 The new provisioning features of Grafana 5.x are used to configure the datasource and import the dashboards.
 
