@@ -10,20 +10,21 @@ The new provisioning features of Grafana 5.x are used to configure the datasourc
 
 * [JMX Prometheus Exporter setup on the Cassandra cluster nodes](https://www.robustperception.io/monitoring-cassandra-with-prometheus/)
 
-Note: On each C* node install the exporter agent
+Note: On each C* node,  install the exporter agent
 
 wget https://github.com/prometheus/node_exporter/releases/download/v1.0.0-rc.1/node_exporter-1.0.0-rc.1.linux-amd64.tar.gz
 
 tar -xzvf node_exporter-1.0.0-rc.1.linux-amd64.tar.gz
 
 cd node_exporter-1.0.0-rc.1.linux-amd64
+
 nohup ./node_exporter &
 
 
 ## Install and Build
 * Clone the repo and change directories into it
 ```
-git clone https://github.com/soccerties/cassandra-monitoring.git
+git https://github.com/oavioz/Cassandra_Monitoring_Grafana_Prometheus.git
 cd cassandra-monitoring
 
 ```
