@@ -7,23 +7,39 @@ The new provisioning features of Grafana 5.x are used to configure the datasourc
 * Apache Cassandra 3.x Cluster
 
 * [JMX Prometheus Exporter setup on the Cassandra cluster nodes](https://www.robustperception.io/monitoring-cassandra-with-prometheus/)
+** I have h jmx exsample file you can use it. lctaed on ./prometheus/cassnadra-jmx.yml
+Please do the follow:
+** Step 1. Download JMX-Exporter:
+$ mkdir /opt/jmx_prometheus
+  $ wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.3.0/jmx_prometheus_javaagent-0.3.0.jar
 
-Note: On each C* Node,  install the exporter agent
+  Step 2. Configure JMX-Exporter
+  $ vim /opt/jmx_prometheus/cassnadra-jmx.yml
 
-wget https://github.com/prometheus/node_exporter/releases/download/v1.0.0-rc.1/node_exporter-1.0.0-rc.1.linux-amd64.tar.gz
+Step 3. Configure Cassandra
+**   echo 'JVM_OPTS="$JVM_OPTS -javaagent:/opt/prometheus-exporter/jmx_prometheus_javaagent-0.3.0.jar=7070:/<your exporter installation>/prometheus-exporter/cassnadra-jmx.yml"' &amp;gt;&amp;gt; conf/cassandra-env.sh
+Step 4. Restart Cassandra
+** $ nodetool flush
+   $ nodetool drain
+   $ sudo service cassandra restart
 
-tar -xzvf node_exporter-1.0.0-rc.1.linux-amd64.tar.gz
 
-cd node_exporter-1.0.0-rc.1.linux-amd64
+* On each C* Node,  install the exporter agent as follow:
+
+1. wget https://github.com/prometheus/node_exporter/releases/download/v1.0.0-rc.1/node_exporter-1.0.0-rc.1.linux-amd64.tar.gz
+
+2. tar -xzvf node_exporter-1.0.0-rc.1.linux-amd64.tar.gz
+
+3. cd node_exporter-1.0.0-rc.1.linux-amd64
 
 Run the exporter on backgroud process
-nohup ./node_exporter &
+4. nohup ./node_exporter &
 
 
 ## Install and Build
 * Clone the repo and change directories into it
 ```
-git https://github.com/oavioz/Cassandra_Monitoring_Grafana_Prometheus.git
+git clone https://github.com/oavioz/Cassandra_Monitoring_Grafana_Prometheus.git
 cd cassandra-monitoring
 
 ```
