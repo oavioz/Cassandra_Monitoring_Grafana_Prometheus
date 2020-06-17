@@ -8,18 +8,18 @@ The new provisioning features of Grafana 5.x are used to configure the datasourc
 
 * [JMX Prometheus Exporter setup on the Cassandra cluster nodes](https://www.robustperception.io/monitoring-cassandra-with-prometheus/)
 * I have h jmx exsample file you can use it. located on "./prometheus/cassnadra-jmx.yml"
-Please do the follow:
-    **** Step 1. Download JMX-Exporter:
+* Please do the follow:
+* Step 1. Download JMX-Exporter:
 $ mkdir /opt/jmx_prometheus
   $ wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.3.0/jmx_prometheus_javaagent-0.3.0.jar
 
-  Step 2. Configure JMX-Exporter
+* Step 2. Configure JMX-Exporter
   $ vim /opt/jmx_prometheus/cassnadra-jmx.yml
 
-Step 3. Configure Cassandra
-**   echo 'JVM_OPTS="$JVM_OPTS -javaagent:/opt/prometheus-exporter/jmx_prometheus_javaagent-0.3.0.jar=7070:/<your exporter installation>/prometheus-exporter/cassnadra-jmx.yml"' &amp;gt;&amp;gt; conf/cassandra-env.sh
-Step 4. Restart Cassandra
-** $ nodetool flush
+* Step 3. Configure Cassandra
+  echo 'JVM_OPTS="$JVM_OPTS -javaagent:/opt/prometheus-exporter/jmx_prometheus_javaagent-0.3.0.jar=7070:/<your exporter installation>/prometheus-exporter/cassnadra-jmx.yml"' &amp;gt;&amp;gt; conf/cassandra-env.sh
+* Step 4. Restart Cassandra
+ $ nodetool flush
    $ nodetool drain
    $ sudo service cassandra restart
 
