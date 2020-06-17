@@ -7,9 +7,9 @@ The new provisioning features of Grafana 5.x are used to configure the datasourc
 * Apache Cassandra 3.x Cluster
 
 * [JMX Prometheus Exporter setup on the Cassandra cluster nodes](https://www.robustperception.io/monitoring-cassandra-with-prometheus/)
-* I have h jmx exsample file you can use it. lctaed on ./prometheus/cassnadra-jmx.yml
+* I have h jmx exsample file you can use it. located on "./prometheus/cassnadra-jmx.yml"
 Please do the follow:
-** Step 1. Download JMX-Exporter:
+    **** Step 1. Download JMX-Exporter:
 $ mkdir /opt/jmx_prometheus
   $ wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.3.0/jmx_prometheus_javaagent-0.3.0.jar
 
